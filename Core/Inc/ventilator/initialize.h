@@ -1,0 +1,100 @@
+/*
+ * initialize.h:
+ *
+ * Initialization constants and functions. This serves as the definitions for the intial values that fill
+ * the global state.
+ *
+ *  Created on: Apr 16, 2020
+ *      Author: mstarch
+ */
+#include <ventilator/types.h>
+#include <ventilator/constants.h>
+#ifndef SRC_VENTILATOR_INITIALIZE_H_
+#define SRC_VENTILATOR_INITIALIZE_H_
+
+enum InitializationValues {
+    INITIAL_FIO2_THRESHOLD_UPPER = 10,
+    INITIAL_FIO2_THRESHOLD_LOWER = -10,
+
+    // From user guide
+    INITIAL_PEEP_THRESHOLD_UPPER = 3,
+    INITIAL_PEEP_THRESHOLD_LOWER = -3,
+    INITIAL_PEEP_UPPER = 30,
+    INITIAL_PEEP_LOWER = 5,
+    INITIAL_PEEP_STEP = 1,
+    INITIAL_PEEP_INIT = 5,
+
+    INITIAL_TIDAL_THRESHOLD_UPPER = 10,
+    INITIAL_TIDAL_THRESHOLD_LOWER = -10,
+    INITIAL_TIDAL_UPPER = 800,
+    INITIAL_TIDAL_LOWER = 150,
+    INITIAL_TIDAL_STEP = 10,
+    INITIAL_TIDAL_INIT = 400,
+
+
+    INITIAL_BACKUP_THRESHOLD_UPPER = 3,
+    INITIAL_BACKUP_THRESHOLD_LOWER = -3,
+    INITIAL_BACKUP_UPPER = 40,
+    INITIAL_BACKUP_LOWER = 4,
+    INITIAL_BACKUP_STEP = 1,
+    INITIAL_BACKUP_INIT = 10,
+
+    INITIAL_PEAK_THRESHOLD_UPPER = 5,
+    INITIAL_PEAK_THRESHOLD_LOWER = -5,
+    INITIAL_PEAK_UPPER = 60, // Dependent on peep
+    INITIAL_PEAK_LOWER = 5,  // Dependent on peep
+    INITIAL_PEAK_STEP = 1,
+    INITIAL_PEAK_INIT = 20,
+
+    INITIAL_ITIME_THRESHOLD_UPPER = 3,
+    INITIAL_ITIME_THRESHOLD_LOWER = -3,
+    INITIAL_ITIME_UPPER = 30, // Deciseconds
+    INITIAL_ITIME_LOWER = 1,
+    INITIAL_ITIME_STEP = 1,
+    INITIAL_ITIME_INIT = 10,
+
+    INITIAL_RESPR_THRESHOLD_UPPER = 0,
+    INITIAL_RESPR_THRESHOLD_LOWER = -10, //backup rate
+    INITIAL_RESPR_UPPER = 50,
+    INITIAL_RESPR_LOWER = 5,
+    INITIAL_RESPR_STEP = 1,
+    INITIAL_RESPR_INIT = 10,
+
+    INITIAL_DEFAULT_SENSITIVITY = -490,
+    INITIAL_BREATH_DETECT_HOLD_OFF = 700, //
+    INITIAL_PLATEAU_SAMPLE_OFFSET = 200,  //Number of ms PLATEAU state transition to sample the pressure
+
+    INITIAL_DISCONNECT_LATCH = CYCLES_PER_SECOND * 2,
+    INITIAL_DISCONNECT_TRIP = CYCLES_PER_SECOND * 2,
+
+    INITIAL_FIO2_LATCH = CYCLES_PER_SECOND * 200,  //200 second for settling
+    INITIAL_FIO2_TRIP = CYCLES_PER_SECOND * 200,
+
+    INITIAL_LOWPOW_LATCH = 0,
+    INITIAL_LOWPOW_TRIP = 0,
+
+    INITIAL_MACHINEFAULT_LATCH = 0,
+    INITIAL_MACHINEFAULT_TRIP = 0,
+
+    INITIAL_PEAK_LATCH = 0,
+    INITIAL_PEAK_TRIP = 0,
+
+    INITIAL_PEEP_LATCH = CYCLES_PER_SECOND * 15,
+    INITIAL_PEEP_TRIP = 0,
+
+    INITIAL_POWEROFF_LATCH = 0,
+    INITIAL_POWEROFF_TRIP = 0,
+    INITIAL_RESPRATE_LATCH = 0,
+    INITIAL_RESPRATE_TRIP = 0,
+
+    INITIAL_TIDALVOL_LATCH = 12 * CYCLES_PER_SECOND,  // Per requirements, 12 seconds
+    INITIAL_TIDALVOL_TRIP = 0
+
+};
+/**
+ * Function to initialize global-state with the above values.
+ * NumericalValues* values: values to fill from global state.
+ */
+void initialize_numeric_values(NumericalValues* values);
+
+#endif /* SRC_VENTILATOR_INITIALIZE_H_ */

@@ -1,0 +1,17 @@
+####
+# Makefile.numerical:
+#
+# A makefile used to build the numerical code and test it on the local system
+#
+####
+ROOT_DIR = ..
+
+.PHONY: run_numerical_test
+run_numerical_test: bin/numerical_test
+	bin/numerical_test
+
+bin/numerical_test: $(ROOT_DIR)/Core/Src/ventilator/numerical.c $(ROOT_DIR)/Core/Inc/ventilator/numerical.h ./numerical_test.c ./test.h ./test.c
+	mkdir -p bin
+	gcc -g -std=c99 -DSTATIC="" -I$(ROOT_DIR)/ventilator-sw-common/Inc -I$(ROOT_DIR)/Core/Inc -I$(ROOT_DIR)/Test $(ROOT_DIR)/Core/Src/ventilator/numerical.c ./numerical_test.c ./test.c -o bin/numerical_test
+
+

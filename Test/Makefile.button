@@ -1,0 +1,15 @@
+####
+# Makefile.bargraph:
+#
+# A makefile used to build the bargraph code and test it on the local system
+#
+####
+ROOT_DIR = ..
+
+.PHONY: run_buttonh_test
+run_button_test: bin/button_test
+	bin/button_test
+
+bin/button_test: $(ROOT_DIR)/Core/Src/ventilator/button.c $(ROOT_DIR)/Core/Src/ventilator/alarm.c  $(ROOT_DIR)/Core/Src/ventilator/mcp23017.c  $(ROOT_DIR)/Core/Inc/ventilator/button.h $(ROOT_DIR)/Core/Inc/ventilator/sound.h $(ROOT_DIR)/Core/Inc/ventilator/mcp23017.h  ./button_test.c ./test.h ./test.c
+	mkdir -p bin
+	gcc -g -std=c99 -DSTATIC="" -DSTATIC="" -I$(ROOT_DIR)/ventilator-sw-common/Inc -I$(ROOT_DIR)/Core/Inc -I$(ROOT_DIR)/Test $(ROOT_DIR)/Core/Src/ventilator/button.c  $(ROOT_DIR)/Core/Src/ventilator/alarm.c  -I$(ROOT_DIR)/Test $(ROOT_DIR)/Core/Src/ventilator/sound.c $(ROOT_DIR)/Core/Src/ventilator/mcp23017.c ./button_test.c ./test.c -o bin/button_test

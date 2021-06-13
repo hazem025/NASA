@@ -1,0 +1,17 @@
+####
+# Makefile.sound:
+#
+# A makefile used to build the sound code and test it on the local system
+#
+####
+ROOT_DIR = ..
+
+.PHONY: run_sound_test
+run_sound_test: bin/sound_test
+	bin/sound_test
+
+bin/sound_test: $(ROOT_DIR)/Core/Src/ventilator/sound.c $(ROOT_DIR)/Core/Inc/ventilator/sound.h ./sound_test.c ./test.h ./test.c
+	mkdir -p bin
+	gcc -g -std=c99 -DSTATIC="" -I$(ROOT_DIR)/ventilator-sw-common/Inc -I$(ROOT_DIR)/Core/Inc -I$(ROOT_DIR)/Test $(ROOT_DIR)/Core/Src/ventilator/sound.c ./sound_test.c ./test.c -o bin/sound_test
+
+

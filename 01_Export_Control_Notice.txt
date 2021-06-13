@@ -1,0 +1,7 @@
+Type 1: Document Cover Page, 
+Information related to the VITAL ventilator is export controlled under the U.S. Department of Commerce, Bureau of Industry and Security and is designated under ECCN EAR99.  As a consequence, the technical data may not be exported nor re-exported to any country which is under an embargo of the U.S. government pursuant to Part 746 of the Export Administration Regulations (15 C.F.R. § 746), nor can it be made available to any national of such country.  In addition, the information may not be exported nor re-exported to an end-user or for an end-use that is prohibited by § 744 of the Export Administration Regulations (15 C.F.R. § 744).
+
+Type 2a: Marking on Each Page 
+This document is controlled under the U.S. Export Regulations ECCN EAR99. Release to foreign persons may require an export authorization.
+Or, if pages does not allow 2a, then use:
+See first page for export compliance statement. 
